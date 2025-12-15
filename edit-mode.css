@@ -1,0 +1,343 @@
+/* Edit Mode Styles */
+
+/* Sidebar Bottom Buttons Container */
+.sidebar-bottom-buttons {
+    position: absolute;
+    bottom: 40px; /* Space for footer */
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(10, 25, 41, 0.95) 50%, transparent);
+    padding: 15px 0 12px 0;
+    z-index: 100;
+}
+
+.book-summary {
+    position: relative;
+    padding-bottom: 170px; /* Space for buttons + footer */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-summary nav {
+    flex: 1;
+    overflow-y: auto;
+}
+
+/* Sidebar Footer */
+.sidebar-footer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 25, 41, 0.95);
+    padding: 12px 0;
+    text-align: center;
+    border-top: 1px solid rgba(79, 195, 247, 0.2);
+    z-index: 99;
+}
+
+.sidebar-footer .gitbook-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 12px;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.sidebar-footer .gitbook-link:hover {
+    color: var(--ocean-accent);
+    opacity: 1;
+}
+
+.sidebar-footer .gitbook-link i {
+    font-size: 13px;
+}
+
+/* Edit Mode Toggle Button */
+.edit-mode-toggle {
+    width: calc(100% - 24px);
+    margin: 0 12px 8px 12px;
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #0d47a1, #1565c0);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 3px 8px rgba(13, 71, 161, 0.4);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    position: relative;
+}
+
+.edit-mode-toggle:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 12px rgba(21, 101, 192, 0.5);
+    background: linear-gradient(135deg, #1565c0, #1976d2);
+}
+
+.edit-mode-toggle.active {
+    background: linear-gradient(135deg, #1b5e20, #2e7d32);
+    box-shadow: 0 3px 8px rgba(27, 94, 32, 0.5);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        box-shadow: 0 3px 8px rgba(46, 125, 50, 0.4);
+    }
+    50% {
+        box-shadow: 0 3px 12px rgba(46, 125, 50, 0.7);
+    }
+}
+
+/* Menu Edit Controls */
+.menu-edit-controls {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 5px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.book-summary .summary li a:hover .menu-edit-controls,
+.book-summary .summary li span:hover .menu-edit-controls {
+    opacity: 1;
+}
+
+.menu-edit-btn,
+.menu-delete-btn,
+.menu-add-sub-btn {
+    background: var(--ocean-accent);
+    border: none;
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.menu-edit-btn:hover {
+    background: var(--ocean-bright);
+    transform: scale(1.1);
+}
+
+.menu-delete-btn {
+    background: #ef5350;
+}
+
+.menu-delete-btn:hover {
+    background: #e53935;
+    transform: scale(1.1);
+}
+
+.menu-add-sub-btn {
+    background: #66bb6a;
+}
+
+.menu-add-sub-btn:hover {
+    background: #4caf50;
+    transform: scale(1.1);
+}
+
+/* Add Menu Button */
+.add-menu-button {
+    width: calc(100% - 30px);
+    margin: 10px 15px;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--ocean-medium), var(--ocean-accent));
+    color: white;
+    border: 2px dashed var(--ocean-bright);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.add-menu-button:hover {
+    background: linear-gradient(135deg, var(--ocean-accent), var(--ocean-bright));
+    border-color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(79, 195, 247, 0.4);
+}
+
+/* Editing Toolbar */
+.editing-toolbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: var(--ocean-blue);
+    padding: 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+}
+
+.editing-toolbar button {
+    background: var(--ocean-medium);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-width: 40px;
+    font-weight: 600;
+}
+
+.editing-toolbar button:hover {
+    background: var(--ocean-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 2px 8px rgba(79, 195, 247, 0.4);
+}
+
+/* Content Editing State */
+.markdown-section[contenteditable="true"] {
+    outline: none;
+}
+
+.markdown-section[contenteditable="true"]:focus {
+    border-color: var(--ocean-bright) !important;
+    box-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+}
+
+/* Edit Mode Indicator */
+.edit-mode-toggle.active::after {
+    content: 'EDITING';
+    position: absolute;
+    top: -8px;
+    right: 10px;
+    font-size: 9px;
+    background: #4caf50;
+    padding: 3px 8px;
+    border-radius: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar-bottom-buttons {
+        padding: 10px 0 8px 0;
+        bottom: 38px;
+    }
+    
+    .sidebar-footer {
+        padding: 10px 0;
+    }
+    
+    .sidebar-footer .gitbook-link {
+        font-size: 11px;
+    }
+    
+    .edit-mode-toggle {
+        margin: 0 10px 8px 10px;
+        padding: 10px 16px;
+        font-size: 13px;
+        width: calc(100% - 20px);
+    }
+    
+    .reset-content-btn {
+        margin: 0 10px 8px 10px;
+        width: calc(100% - 20px);
+    }
+    
+    .editing-toolbar {
+        position: relative;
+        top: auto;
+    }
+    
+    .menu-edit-controls {
+        opacity: 1;
+    }
+}
+
+/* Reset Button */
+.reset-content-btn {
+    width: calc(100% - 24px);
+    margin: 0 12px 8px 12px;
+    padding: 10px 16px;
+    background: linear-gradient(135deg, #b71c1c, #c62828);
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-shadow: 0 2px 6px rgba(183, 28, 28, 0.3);
+}
+
+.reset-content-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(198, 40, 40, 0.5);
+    background: linear-gradient(135deg, #c62828, #d32f2f);
+}
+
+.reset-content-btn i {
+    font-size: 13px;
+}
+
+/* Save Notification */
+.save-notification {
+    position: fixed;
+    top: 70px;
+    right: 30px;
+    background: linear-gradient(135deg, #2e7d32, #66bb6a);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+    z-index: 9998;
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(400px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
